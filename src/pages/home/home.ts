@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EpisodeServiceProvider } from '../../providers/episode-service/episode-service';
 import { AudioProvider } from 'ionic-audio';
+import { SurveyPage } from '../survey/survey'
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,7 @@ export class HomePage {
   episodes = [];
   allTracks: any[];
   selectedTrack;
+  survey = false;
 
   constructor(public navCtrl: NavController, public episodeService: EpisodeServiceProvider, private _audioProvider: AudioProvider) {
     this.episodeService.load()
@@ -32,6 +34,10 @@ export class HomePage {
   }
 
   onTrackFinished(track: any) {
+    if (this.survey === false) {
+      this.navCtrl.push(SurveyPage);
+      this.survey = true
+    }
     console.log('Track finished', track)
   }
 }

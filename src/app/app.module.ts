@@ -8,12 +8,14 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SurveyPage } from '../pages/survey/survey';
 import { EpisodeServiceProvider } from '../providers/episode-service/episode-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    SurveyPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { EpisodeServiceProvider } from '../providers/episode-service/episode-ser
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    SurveyPage
   ],
   providers: [
     StatusBar,
