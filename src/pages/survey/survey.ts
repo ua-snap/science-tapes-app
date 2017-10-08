@@ -21,7 +21,6 @@ export class SurveyPage {
 
   ionViewDidLoad() {
     this.showing = true;
-    console.log('ionViewDidLoad SurveyPage');
   }
 
   viewDidDisappear() {

@@ -39,6 +39,5 @@ export class HomePage {
       this.navCtrl.push(SurveyPage);
       this.surveyService.shown = true
     }
-    console.log('Track finished', track)
   }
 }

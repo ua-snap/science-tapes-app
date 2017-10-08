@@ -13,7 +13,6 @@ export class SurveyServiceProvider {
   shown = false;
 
   constructor(public http: Http) {
-    console.log('Hello SurveyServiceProvider Provider');
-  }
 
+  }
 }
