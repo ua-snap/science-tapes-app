@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SurveyPage } from '../pages/survey/survey';
 import { EpisodeServiceProvider } from '../providers/episode-service/episode-service';
+import { SurveyServiceProvider } from '../providers/survey-service/survey-service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EpisodeServiceProvider } from '../providers/episode-service/episode-ser
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    EpisodeServiceProvider
+    EpisodeServiceProvider,
+    SurveyServiceProvider
   ]
 })
 export class AppModule {}
