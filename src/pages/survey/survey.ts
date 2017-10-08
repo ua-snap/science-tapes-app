@@ -14,16 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'survey.html'
 })
 export class SurveyPage {
-  showing: any;
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
-  ionViewDidLoad() {
-    this.showing = true;
-  }
-
-  viewDidDisappear() {
-    this.showing = false;
   }
 }
