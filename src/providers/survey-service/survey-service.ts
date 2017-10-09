@@ -35,20 +35,4 @@ export class SurveyServiceProvider {
       });
     });
   }
-
-  getShown(episode) {
-    return new Promise(resolve => {
-      if (!this.surveys) {
-        return this.load()
-        .then(surveys => {
-          return resolve(surveys[episode].shown);
-        });
-      }
-      return resolve(this.surveys[episode].shown);
-    });
-  }
-
-  setShown(episode) {
-    this.surveys[episode].shown = true;
-  }
 }
