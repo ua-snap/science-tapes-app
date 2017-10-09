@@ -40,8 +40,8 @@ export class HomePage {
   }
 
   onTrackFinished(track: any) {
-    if (!this.surveys[1].shown) {
-      this.surveys[1].shown = true;
+    if (!this.surveys[track.nid].shown) {
+      this.surveys[track.nid].shown = true;
       this.navCtrl.push(SurveyPage);
     }
   }
