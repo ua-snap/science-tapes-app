@@ -10,23 +10,22 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class EpisodeServiceProvider {
-  data;
+  episodes;
 
   constructor(public http: Http) {
 
   }
 
   load() {
-    if (this.data) {
-      return Promise.resolve(this.data);
+    if (this.episodes) {
+      return Promise.resolve(this.episodes);
     }
 
     return new Promise(resolve => {
-      var episodes = [];
       this.http.get('http://path/to/endpoint')
       .subscribe(data => {
-        JSON.parse(data['_body']).forEach((node) => {
-          episodes.push({
+        this.episodes = JSON.parse(data['_body']).map(node => {
+          return ({
             nid: node.nid,
             src: node.audio,
             artist: node.title,
@@ -35,8 +34,7 @@ export class EpisodeServiceProvider {
             preload: 'metadata'
           });
         })
-        this.data = episodes;
-        resolve(episodes);
+        return resolve(this.episodes);
       });
     });
   }

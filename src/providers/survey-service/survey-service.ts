@@ -18,11 +18,11 @@ export class SurveyServiceProvider {
   }
 
   load() {
-    return new Promise(resolve => {
-      if (this.surveys) {
-        return resolve(this.surveys);
-      }
+    if (this.surveys) {
+      return Promise.resolve(this.surveys);
+    }
 
+    return new Promise(resolve => {
       this.surveys = {};
       this.episodeService.load()
       .then(data => {
