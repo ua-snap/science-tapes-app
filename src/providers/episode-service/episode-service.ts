@@ -27,6 +27,7 @@ export class EpisodeServiceProvider {
       .subscribe(data => {
         JSON.parse(data['_body']).forEach((node) => {
           episodes.push({
+            nid: node.nid,
             src: node.audio,
             artist: node.title,
             title: node.description,
@@ -34,6 +35,7 @@ export class EpisodeServiceProvider {
             preload: 'metadata'
           });
         })
+        this.data = episodes;
         resolve(episodes);
       });
     });

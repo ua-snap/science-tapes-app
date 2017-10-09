@@ -11,14 +11,19 @@ import { SurveyPage } from '../survey/survey'
 })
 export class HomePage {
   episodes = [];
+  surveys = [];
   allTracks: any[];
   selectedTrack;
-  survey = false;
 
   constructor(public navCtrl: NavController, public episodeService: EpisodeServiceProvider, public surveyService: SurveyServiceProvider, private _audioProvider: AudioProvider) {
     this.episodeService.load()
     .then(data => {
       this.episodes = data;
+    });
+
+    this.surveyService.load()
+    .then(data => {
+      this.surveys = data;
     });
   }
 
@@ -35,9 +40,9 @@ export class HomePage {
   }
 
   onTrackFinished(track: any) {
-    if (this.surveyService.shown === false) {
+    if (!this.surveys[1].shown) {
+      this.surveys[1].shown = true;
       this.navCtrl.push(SurveyPage);
-      this.surveyService.shown = true
     }
   }
 }
