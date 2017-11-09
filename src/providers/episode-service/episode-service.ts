@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+// TODO: Move this URL into a configuration file.
+var drupalUrl = 'http://path/to/endpoint';
+
 /*
   Generated class for the EpisodeServiceProvider provider.
 
@@ -22,15 +25,15 @@ export class EpisodeServiceProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://path/to/endpoint')
+      this.http.get(drupalUrl + '/api/episodes')
       .subscribe(data => {
         this.episodes = JSON.parse(data['_body']).map(node => {
           return ({
             nid: node.nid,
-            src: node.audio,
+            src: drupalUrl + node.audio,
             artist: node.title,
             title: node.description,
-            art: node.thumbnail.src,
+            art: drupalUrl + node.thumbnail,
             preload: 'metadata'
           });
         })
