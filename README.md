@@ -1,26 +1,49 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## Science Tapes mobile app
 
-## How to use this template
+This is a mobile app prototype for the Science Tapes audio series. It implements several key features:
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+- Pulls metadata and audio files for each episode from a Drupal 8 web services endpoint.
+- Plays audio files using the [Ionic Audio for Ionic 3](https://github.com/arielfaur/ionic-audio) plugin.
+- Pops up a feedback survey when an episode finishes (only once per episode).
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+The full-fledged version of this app will need to:
 
-### With the Ionic CLI:
+- Submit feedback from the survey form to either an email address, Drupal web services endpoint, or both.
+- Provide a way to deliver supporting visual materials for each episode. For example, figures, or occasional video animations.
+- Provide support for background notifications. The app should pop up a message when a new episode is available and possibly other news as well. [Firebase](https://firebase.google.com/) may be needed for this.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+This prototype has been tested on the following software versions:
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+- Ionic 3.13.0
+- Cordova 7.0.1
+- Ubuntu 14.04.5 LTS
+- Android 5.01
 
-Then, to run it, cd into `myBlank` and run:
+It has not been tested on iOS yet.
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+### Installation
 
-Substitute ios for android if not on a Mac.
+1. Follow [Ionic's instructions to install Ionic and Cordova](http://ionicframework.com/docs/v1/guide/installation.html).
+1. Clone this repository.
+1. Inside the repository directory, install dependencies:
 
+   ```
+   npm install
+   ionic cordova platform add android
+   ```
+
+1. Add the real episode JSON endpoint URL to `src/providers/episode-service/episode-service.ts`.
+
+1. Run the app:
+
+   To run on the Android emulator:
+
+   ```
+   ionic cordova emulate android
+   ```
+
+   To run on a real Android device, connected via USB:
+
+   ```
+   ionic cordova run android
+   ```
