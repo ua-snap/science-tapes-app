@@ -1,4 +1,4 @@
-## Science Tapes mobile app
+# Science Tapes mobile app
 
 This is a mobile app prototype for the Science Tapes audio series. It implements several key features:
 
@@ -21,7 +21,7 @@ This prototype has been tested on the following software versions:
 
 It has not been tested on iOS yet.
 
-### Installation
+## Installation
 
 1. Follow [Ionic's instructions to install Ionic and Cordova](http://ionicframework.com/docs/v1/guide/installation.html).
 1. Clone this repository.
